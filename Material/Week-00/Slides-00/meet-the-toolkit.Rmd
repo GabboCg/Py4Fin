@@ -1,0 +1,141 @@
+---
+title: "&gt; Meet the Toolkit"
+author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
+date: 'Otoño 2021<br><br>`r icon::fa("link")` [bit.ly/jlt-rmed2018](https://bit.ly/jlt-rmed2018)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: [xaringan-themer.css, my-theme.css]
+    nature:
+      ratio: '14:9'
+      countIncrementalSlides: false
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightLines: true
+      highlightStyle: solarized-dark
+    includes:
+      in_header: header.html
+---
+
+layout: true
+  
+<div class="my-footer"><span><small>Introducción a Python para las Finanzas • @GabboCg</small></span></div> 
+
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, dpi = 72)
+
+library(icon)      ## for FontAwesome icons (ozunconf17 project!)
+library(emo)       ## for emoji, obvs (github.com/hadley/emo)
+library(tidyverse) ## for data wrangling
+```
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+mono_light(
+  base_color = "#125972", ## picked to coordinate with rOpenSci logo
+  code_highlight_color = "#c0e8f5",
+  link_color = "#197b9e",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Droid Mono")
+)
+```
+
+class: center, middle
+
+<img style="border-radius: 50%; border:3px solid #ffffff;" src="https://avatars1.githubusercontent.com/u/35644280?s=400&u=67a633cb4550ad26715625df4b09ecc580677441&v=4" width="150px"/>
+
+# Me pueden encontrar...
+
+<a href="mailto:gcabrerag@fen.uchile.cl"><i class="fa fa-paper-plane fa-fw"></i>&nbsp;gcabrerag@fen.uchile.cl</a><br>
+<a href="https://gcabrerag.rbind.io/"><i class="fa fa-link fa-fw"></i>&nbsp; gcabrerag.rbind.io</a><br>
+<a href="https://twitter.com/GabboCg"><i class="fab fa-twitter"></i>&nbsp; @GabboCg</a><br>
+<a href="http://github.com/GabboCg"><i class="fab fa-github"></i>&nbsp; @GabboCg</a><br>
+<a href="http://pregrado.fen.uchile.cl/"><i class="fa fa-map-marker fa-fw"></i>&nbsp; Facultad de Economía & Negocios, Universidad de Chile </a>
+
+---
+
+class: inverse, center, middle
+
+#  Anaconda = Spyder + Python 
+
+---
+
+# `r fontawesome::fa("fab fa-youtube", fill = "red")`  Instalación
+
+Para instalar Anaconda, hay que seguir los siguientes pasos:
+
+1. Ir a [https://www.anaconda.com/](https://www.anaconda.com/)
+
+2. clic en **Products** > **Individual Edition** > **Download** 
+
+3. Seleccionar el Anaconda **installer** (Graphical Installer) con Python 3.8 según el sistema operativo del usuario:
+
+  * Windows `r fontawesome::fa("fab fa-windows")` 
+  
+  * MacOS `r fontawesome::fa("fab fa-apple")` 
+  
+  * Linux `r fontawesome::fa("fab fa-linux")` 
+
+4. Seguir las instrucciones de su sistema operativo hasta completar la instalación.
+
+---
+
+class: inverse, center, middle
+
+# Jupyter Notebooks 
+
+---
+
+# ¿Cómo usar Jupyter Notebook?
+
+---
+
+class: inverse, center, middle
+
+# Google Colab ☁️ + 💻
+
+---
+
+# `r fontawesome::fa("fab fa-youtube", fill = "red")` ¿Cómo usar Google Colab?
+
+1. Una alternativa a Spyder, es Google Colab (.ipynb).
+
+2. Colab te permite ejecutar y programar en Python<sup>1</sup> en tu navegador:
+
+  * No requiere configuración
+  
+  * Acceso gratuito a GPUs
+  
+  * Compartir fácilmente
+
+3. Para ingresar se debe ir a https://colab.research.google.com/
+
+4. Luego click en Iniciar sesión (puede usar su correo @fen.uchile.cl)
+
+5. Para ver el uso de Google Colab, hacer clic en `r fontawesome::fa("fab fa-youtube", fill = "red")` al lado izquierdo de título de esta *slide*.
+
+.footnote[
+
+[1] También acepta otros lenguajes de programación como R o Julia 😱😱😱!!!.
+
+]
+
+---
+class: center, middle, inverse
+
+# Muchas Gracias
+ 
+El tema del slides fue basado en [Jennifer L Thompson](https://jenthompson.me/resources/).
+
+Slides creadas vía el paquete de R [xaringan](https://github.com/yihui/xaringan).
+
+Los chakras provienen de [remark.js](https://remarkjs.com), [knitr](http://yihui.name/knitr), y [R Markdown](https://rmarkdown.rstudio.com).
+
+Este trabajo está licenciado con Creative Commons Attribution- ShareAlike 4.0 International License. 
+
+Para ver una copia de está licencia, visite:
+
+https://creativecommons.org/licenses/by-sa/4.0/
+

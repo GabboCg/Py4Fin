@@ -1,0 +1,181 @@
+---
+title: "Introducción a Python para las Finanzas"
+author: "Gabriel Cabrera G."
+date: "Otoño 2021"
+output:
+  pdf_document:
+    keep_tex: no
+    fig_caption: yes
+    number_sections: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: Latex/template.tex
+  word_document: default
+geometry: margin=1in
+email: gcabrerag@fen.uchile.cl
+web: canvas.fen.uchile.cl
+officehours: Webex
+office: N/A
+classroom: Webex
+classhours: N/A
+fontfamily: mathpazo
+fontsize: 11pt
+header-includes: \linespread{1.05}
+---
+
+```{r setup, include=FALSE, cache=F, message=F, warning=F, results="hide", eval = T}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r dates_bib, include=FALSE}
+mon <- as.Date("2016-08-15")
+
+advdate <- function(obj, adv) {
+  
+ tmon <- obj + 7 * (adv - 1)
+ tfri <- obj + 4 + 7 * (adv - 1)
+ tmon <- format(tmon, format = "%m/%d")
+ tfri <- format(tfri, format = "%m/%d")
+ zadv <- sprintf("%02d", adv)
+ tmp <- paste("Week ", zadv, sep = '',", ", tmon," - ", tfri)
+ 
+ return(tmp)
+ 
+}
+
+library(RefManageR)
+
+bib <- ReadBib("Latex/bibliography.bib")
+myopts <- BibOptions(bib.style = "authoryear", style = "latex", first.inits = FALSE, max.names = 20)
+```
+
+# Descripción del Curso
+
+Creado en 1991 por Guido van Rossum, Python sea ha vuelto uno de los lenguajes de programación favorito tanto en la academia como en la industria, esto se debe a su simple sintaxis y extensas (poderosas) librerías. El curso busca entregar las herramientas básicas para enfrentar problemas financieros y/o económicos. Entre los tópicos a discutir se encuentran: estructura de datos, control de flujo condicional, funciones, introducción a la librería NumPy, manipulación de datos con Pandas y series de tiempo.
+
+# Objetivos
+
+1. Entender la sintaxis y ambiente de programación de Python
+
+2. Familiarización con los distintos tipos y estructuras de datos
+
+3. Manipulación de base de datos estructuradas utilizando Pandas
+
+4. Creación de funciones propias para resolver problemas reales
+
+5. Presentación de resultados utilizando Jupyter Notebooks
+
+# Evaluaciones
+
+La nota final estará ponderada de la siguiente manera:
+
+* Tareas: 70% (máximo 2 integrantes)
+
+* Examen: 30% (incluye todo la materia del curso)
+
+# Métodología
+
+El curso se desarrollará a través de clases expositivas y ejercicios prácticos utilizando Python.
+
+# Contenidos
+
+1. Introducción
+
+    a. Instalación y Setup de Anaconda (IDEs)
+    
+    b. El Interpretador de Python
+    
+    c. IPython Shell
+    
+    d. Jupyter Notebook 
+  
+    e. Google Colaboratory
+  
+2. Estructura de Datos & Secuencias
+
+    a. Tupla (tuple)
+    
+    b. Lista (list)
+    
+    c. Diccionario (dict)
+    
+    d. Conjunto (set)
+    
+3. Control de Flujo Condicional
+
+    a. Ciclos (loops) `for` y `while` 
+    
+    b. `if`, `elif` y `else`
+    
+    c. Operadores Lógicos
+    
+    d. Operadores Matemáticos 
+    
+    e. Comprehension de Lista, Conjunto y Diccionario 
+
+4. Funciones
+    
+    a. Creación e Importación 
+    
+    b. Módulo Itertools 
+    
+    c. Funciones Anónimas (Lambda) 
+    
+    d. Manejo de errores y excepciones
+    
+    e. Importación de Librerías 
+    
+    f. Ejemplo: Precio Bono Bullet
+  
+5. Introducción a NumPy
+
+    a. Array, Matriz y ndarray
+  
+    b. Concatenación, Separación y Subconjunto 
+    
+    c. Computación en Arrays: Broadcasting
+    
+    d. Funciones de Algebra Lineal
+    
+    e. Ejemplo: Regresión Lineal 
+    
+    f. Ejemplo: *Random Walk*
+
+6. Manipulación de Datos con Pandas
+
+    a. DataFrame, Series e Index Object
+    
+    b. Funciones Esenciales para Estructura de Datos en Pandas
+    
+    c. Tratamiento de *Missing Values* y *Null Values* 
+    
+    d. Transformación de variables
+    
+    e. Agregación de Datos y Operaciones de Agrupación
+  
+    g. Combinación de Bases de Datos: Concat, Append, Merge y Join
+
+    h. Reshape y Pivot 
+
+    i. Importar y Exportar Datos
+    
+    j. Ejemplo: Generación de *Dummies*
+
+7. Series de Tiempo
+
+    a. Estructuras de Datos de Series de tiempo en Pandas
+    
+    b. *Resampling* y *Shifting* (Construcción Retornos)
+
+    b. *Rolling Window* y *Expanding Window*
+    
+    c. Ejemplo: Portafolio *Equally Weighted* 
+    
+    d. Ejemplo: Retorno Acumulado Geométrico 
+    
+# Lecturas Recomendadas
+
+```{r, echo = FALSE, results="asis"} 
+bib
+``` 
+

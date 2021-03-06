@@ -1,0 +1,61 @@
+---
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}   
+  ENGIN 604 Introducción a Python para las Finanzas - Otoño 2021 
+author: "Políticas de las Tarea"
+# bibliography: "latex/references.bib"
+#biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=1in
+fontsize: 11pt
+graphics: yes
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: xelatex
+    template: "latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\vspace{-10pt}
+
+# Políticas {-}
+
+* No se permiten días de atraso y extensiones.
+
+* Cada tarea puede ser desarrollado en grupos de máximo 2 integrantes.
+
+* Cada tarea contribuye de igual forma a la ponderación correspondiente a las tareas (70%).
+
+* Se debe entregar un archivo con extensión PDF o Jupyter Notebook (.ipynb). 
+
+* En conjunto con el archivo PDF se debe adjuntar^[Si utiliza Jupyter Notebook (.ipynb) no es necesario enviar un script (.py).] un *script* de Python (.py) y enviarlo via email a engin604assignments@gmail.com. 
+
+    El nombre del archivo PDF o Jupyter Notebook (.ipynb) debe ser \textcolor{red}{\faExclamationTriangle}: 
+
+    * [apellido-alumno-1]-[apellido-alumno-2]-tarea[número].pdf; por ejemplo, en la solución del tarea 3 debería llamar a su archivo como **cabrera-denbraber-tarea3.pdf** o **cabrera-denbraber-tarea3.ipynb**
+    
+    El nombre del script debe ser \textcolor{red}{\faExclamationTriangle}: 
+
+    * [apellido-alumno-1]-[apellido-alumno-2]-tarea[número].py;  por ejemplo, en la solución del tarea 3 debería llamar a su archivo como **cabrera-denbraber-tarea3.py** 
+    
+    El asunto del correo debe ser \textcolor{red}{\faExclamationTriangle}: 
+    
+    * [apellido-alumno-1]-[apellido-alumno-2]-tarea[número];  por ejemplo, en la solución del tarea 3 debería llamar al asunto del correo como **cabrera-denbraber-tarea3**
+    
+* Las tareas se debe entregar antes de las 11:59pm de la fecha de entrega señalado en el enunciado.
+
+* Cualquier fuente externa (*papers*, libros, clases, etc) utilizada debe ser referenciada (no es considerado en el máximo de páginas señalado en el enunciado).
+
+* Todo lo anterior también aplica para aquellos o aquellas que deseen realizar las tareas de manera individual.
