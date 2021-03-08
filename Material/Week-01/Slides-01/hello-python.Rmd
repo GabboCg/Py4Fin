@@ -1,7 +1,7 @@
 ---
 title: "&gt; Hello Python!"
 author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
-date: 'Otoño 2021<br><br>`r icon::fa("link")` [bit.ly/jlt-rmed2018](https://bit.ly/jlt-rmed2018)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
+date: 'Otoño 2021<br><br>`r icon::fa("link")`[bit.ly/3eiJZ5Y](https://bit.ly/3eiJZ5Y)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -11,7 +11,7 @@ output:
       countIncrementalSlides: false
       titleSlideClass: ["left", "middle", "inverse"]
       highlightLines: true
-      highlightStyle: solarized-dark
+      highlightStyle: github
     includes:
       in_header: header.html
 ---
@@ -60,7 +60,7 @@ class: inverse, center, middle
 
 ---
 
-# ¿Quien soy?
+# ¿Quién soy?
 
 <div align='center'>
   <img style="border-radius: 50%; border:3px solid #ffffff;" src="https://avatars1.githubusercontent.com/u/35644280?s=400&u=67a633cb4550ad26715625df4b09ecc580677441&v=4" width="150px"/>
@@ -80,23 +80,23 @@ class: inverse, center, middle
 
 <i class="fa fa-calendar"></i> &nbsp; Mie 16:00 - 17:00 (Horario de consultas)
 
----
+<!-- --- -->
 
-# ¿Quien más está involucrado?
+<!-- # ¿Quién más está involucrado? -->
 
-<div align='center'>
-  <img style="border-radius: 50%; border:3px solid #ffffff;" src="https://pbs.twimg.com/profile_images/633276699069808640/v0lHH78a_400x400.jpg" width="150px"/>
-</div>
+<!-- <div align='center'> -->
+<!--   <img style="border-radius: 50%; border:3px solid #ffffff;" src="https://pbs.twimg.com/profile_images/633276699069808640/v0lHH78a_400x400.jpg" width="150px"/> -->
+<!-- </div> -->
 
-<div align='center'>
-👾 Alex Den Braber 
-</div>
+<!-- <div align='center'> -->
+<!-- 👾 Alex Den Braber  -->
+<!-- </div> -->
 
-<br>
+<!-- <br> -->
 
-<i class="fa fa-envelope"></i> &nbsp; [adenbraber@fen.uchile.cl](adenbraber@fen.uchile.cl) <br>
+<!-- <i class="fa fa-envelope"></i> &nbsp; [adenbraber@fen.uchile.cl](adenbraber@fen.uchile.cl) <br> -->
 
-<i class="fa fa-calendar"></i> &nbsp; Vie 15:30 - 16:50 (Horario de ayudantía)
+<!-- <i class="fa fa-calendar"></i> &nbsp; Vie 15:30 - 16:50 (Horario de ayudantía) -->
 
 ---
 # ¿Sobre qué es este curso?
@@ -123,7 +123,7 @@ class: inverse, center, middle
 
 <i class="fas fa-calendar-alt fa-lg"></i> &nbsp; Mar & Jue 9:30 - 10:50 </br> 
 
-* [<i class="fas fa-download"></i>](http://gcabrerag.rbind.io/blog/_site/teaching?panelset=syllabus) Calendario (Docencia Web).
+* [<i class="fas fa-download"></i>](files/course_calendar.xlsx) Calendario (Docencia Web).
 
 * Slides
 
@@ -158,20 +158,22 @@ class: inverse, center, middle
 
 * **Tareas:** Máximo dos integrantes por tareas (4). Ideal que sean los mismos durante el bimestre.
 
-* **Examen**: De caracter individual e Incluye todo lo visto en el curso.
+* **Examen**: De caracter individual e Incluye todo lo visto en el curso (vía Canvas<sup>1</sup>).
 
 | Componente | Ponderación |
 |------------|:-----------:|
 | Tareas (4) |  70%        |
 | Examen     | 30%         |
 
-* [<i class="fas fa-download"></i>](files/hw_policies.pdf) Política de entregas<sup>1</sup> (Docencia Web).
+* [<i class="fas fa-download"></i>](files/hw_policies.pdf) Política de entregas<sup>2</sup> (Docencia Web).
 
 * Ver la normativa básica en el programa (Docencia Web).
 
 .footnote[
 
-[1] Valido para tareas y examen.
+[1] Se subirá un instructivo aprox. 2 semanas antes.
+
+[2] Valido para tareas y examen.
 
 ]
 
@@ -186,13 +188,13 @@ class: inverse, center, middle
 
 </br>
 
-| Evaluación | Fecha                                                                              |
-|------------|------------------------------------------------------------------------------------|
-| Tarea 1    | Jueves 18 de Marzo (incluye hasta la clase 4)                                      |
-| Tarea 2    | Jueves 25 de Marzo (incluye hasta la clase 6)                                      |
-| Tarea 3    | Jueves 1 de Abril (incluye hasta la clase 8)                                       |
-| Tarea 4    | Jueves 8 de Abril (incluye hasta la clase 10)                                      |
-| Examen     | Se subirá el último día de clases y se entregará el Jueves 22 de Abril<sup>2</sup> |
+| Evaluación | Fecha                                                    | Entrega            |
+|------------|----------------------------------------------------------|--------------------|
+| Tarea 1    | Jueves 18 de Marzo (incluye hasta la clase 4)            | Jueves 25 de Marzo |
+| Tarea 2    | Jueves 25 de Marzo (incluye hasta la clase 6)            | Jueves 1 de Abril  |
+| Tarea 3    | Jueves 1 de Abril (incluye hasta la clase 8)             | Jueves 8 de Abril  |
+| Tarea 4    | Jueves 8 de Abril (incluye hasta la clase 10)            | Jueves 15 de Abril |
+| Examen     | Jueves 22 de Abril<sup>2</sup> (incluye toda la materia) | NA                 |
 
 .footnote[
 
@@ -208,16 +210,67 @@ class: inverse, center, middle
 ---
 # Anaconda = Spyder + Python 
 
+<br>
+<center>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/_bT30M4aBVM">
+</iframe>
+</center>
+
 ---
 # Jupyter Notebooks
 
+<br>
+<center>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/r58wn96Qd3c">
+</iframe>
+</center>
+
 ---
 # Google Colab ☁️ + 💻
+
+<br>
+<center>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/PZEHvgx06FE">
+</iframe>
+</center>
 
 ---
 class: inverse, center, middle
 
 # ¿Por qué Python `r emo::ji("snake")`?
+
+---
+
+# Python Vs C++ Vs Java
+
+* Python:
+    ```{python, echo=TRUE, eval=FALSE}
+    print('Python Vs C++ Vs Java!')
+    ```
+    
+* C++
+    ```{cc, echo=TRUE, eval=FALSE}
+    # include <iostream>
+    
+    void main()
+    {
+      cout << "Python Vs C++!"
+    }
+    ```
+
+* Java
+    ```{java, echo=TRUE, eval=FALSE}
+    public class PythonVsJava 
+    {
+      public static void main(String[] args)
+      {
+        System.out.println("Python Vs Java!");  
+      }
+    }
+    ```
 
 ---
 background-image: url(images/stars-bg.jpg)

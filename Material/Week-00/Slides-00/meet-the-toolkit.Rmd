@@ -1,7 +1,7 @@
 ---
 title: "&gt; Meet the Toolkit"
 author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
-date: 'Otoño 2021<br><br>`r icon::fa("link")` [bit.ly/jlt-rmed2018](https://bit.ly/jlt-rmed2018)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
+date: 'Otoño 2021<br><br>`r icon::fa("link")` [bit.ly/2ObxeQa](https://bit.ly/2ObxeQa)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -62,13 +62,13 @@ class: inverse, center, middle
 
 ---
 
-# `r fontawesome::fa("fab fa-youtube", fill = "red")`  Instalación
+# [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/_bT30M4aBVM)  Instalación
 
-Para instalar Anaconda, hay que seguir los siguientes pasos:
+Para instalar Anaconda deben seguir los siguientes pasos:
 
 1. Ir a [https://www.anaconda.com/](https://www.anaconda.com/)
 
-2. clic en **Products** > **Individual Edition** > **Download** 
+2. Clic en **Products** > **Individual Edition** > **Download** 
 
 3. Seleccionar el Anaconda **installer** (Graphical Installer) con Python 3.8 según el sistema operativo del usuario:
 
@@ -80,6 +80,8 @@ Para instalar Anaconda, hay que seguir los siguientes pasos:
 
 4. Seguir las instrucciones de su sistema operativo hasta completar la instalación.
 
+5. Para verificar que la instalación de Anaconda haya sido la correcta, clic en el siguiente enlace: [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/0dRb5wRjEq8)
+
 ---
 
 class: inverse, center, middle
@@ -90,6 +92,15 @@ class: inverse, center, middle
 
 # ¿Cómo usar Jupyter Notebook?
 
+<br>
+<center>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/r58wn96Qd3c">
+</iframe>
+</center>
+
+* Fuente: https://youtu.be/r58wn96Qd3c
+
 ---
 
 class: inverse, center, middle
@@ -98,9 +109,9 @@ class: inverse, center, middle
 
 ---
 
-# `r fontawesome::fa("fab fa-youtube", fill = "red")` ¿Cómo usar Google Colab?
+# [`r fontawesome::fa("fab fa-youtube", fill = "red")`](https://youtu.be/PZEHvgx06FE) ¿Cómo usar Google Colab?
 
-1. Una alternativa a Spyder, es Google Colab (.ipynb).
+1. Una alternativa a Spyder es Google Colab (.ipynb).
 
 2. Colab te permite ejecutar y programar en Python<sup>1</sup> en tu navegador:
 
@@ -114,7 +125,7 @@ class: inverse, center, middle
 
 4. Luego click en Iniciar sesión (puede usar su correo @fen.uchile.cl)
 
-5. Para ver el uso de Google Colab, hacer clic en `r fontawesome::fa("fab fa-youtube", fill = "red")` al lado izquierdo de título de esta *slide*.
+5. Para ver el uso de Google Colab, haz clic en `r fontawesome::fa("fab fa-youtube", fill = "red")` al lado izquierdo de título de esta *slide*.
 
 .footnote[
 

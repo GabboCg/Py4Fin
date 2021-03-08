@@ -54,6 +54,7 @@ h1, h2, h3 {
 }
 .remark-code {
   font-size: 0.9em;
+  border-style: solid;
 }
 .remark-inline-code {
   font-size: 1em;
