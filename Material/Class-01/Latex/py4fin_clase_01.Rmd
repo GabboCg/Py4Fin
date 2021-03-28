@@ -1,0 +1,166 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas
+author: "Variables, Convenciones & Tipos de Datos"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1VdoN7NCyNXI3wSaK-ffzySKjSNGEBaZF?usp=sharing)
+
+# Variables 
+
+Una Variable en Python es un espacio en la memoria RAM de tu computadora donde puedes guardar resultados y objetos.
+Para crear una variable ocupamos una "asignación", es decir, una expresión con una igualdad. Lo que está a la izquierda del signo igual será el nombre de la variable donde quedará guardado el valor, y lo que está a la derecha del igual es el valor a guardar (*Aplicaciones de Manejo de Datos, 2020*).
+
+Por ejemplo, creemos la variable `ncel` y guardemos el valor `12345678`:
+
+```{python}
+ncel = 12345678 # el simbolo = es el de asignación
+ncel
+```
+
+En python no es necesario terminar la linea de código con ; (semicolons), pero si cumple un rol:
+
+```{python}
+a = 1; b = 2; c = 3
+```
+
+También se puede asignar valores a varias variables en una sola linea de código:
+
+```{python}
+a, b, c = 1, 2, 3
+```
+
+# Convenciones
+
+1. Existen nombre de variables reservadas que no se deben usar debido que están reservados por Python:
+
+    ```{python, eval=FALSE}
+    # librería
+    import keyword
+    
+    # nombres reservados
+    keyword.kwlist
+    ```
+
+2. Los comentarios simples se realizan con #.
+
+    ```{python, eval=FALSE}
+    # esto es un comentario simple 
+    ```
+
+3. Los comentarios multi-line comienzan con ''' y terminan con '''.
+
+    ```{python, eval=FALSE}
+    """
+    esto es 
+    un 
+    comentario
+    multiple
+    """
+    ```
+
+\newpage
+# Tipos de Datos (escalares)
+
+1. Cuales son los tipos de datos en Python? ¿Cómo puedo identificarlos y convertirlos en otros tipos de datos? 
+
+## Expresiones numéricas
+
+1. ¿Qué operaciones numericas puedo aplicar?
+
+2. Cual es el resultado de:
+
+    $$
+    1+2^3/4 \times 5
+    $$
+
+3. Calcule el valor presente de un flujo de efectivo de $\$1000$ por un total de 5 períodos. Asuma una tasa de descuento de $10\%$. El valor presente (VP) es igual a:
+
+    $$
+    VP = \sum^{T}_{t=0} \frac{F_t}{(1+r)^t}
+    $$
+    
+## Cadenas de Texto
+
+1. Considerando el siguiente texto: “*Hay ciertas cosas que el dinero no puede comprar, para todo lo demás existe mastercard*”. Responda:
+
+    a. ¿Cuántos caracteres contiene el texto?
+
+    b. ¿Cuántas veces se encuentra la letra r? ¿Cuántas veces se encuentra la letra r luego de la “,”?
+
+    c. ¿En que posición está “mastercard”?
+
+    d. Reemplace “mastercard” por “Mastercard”.
+    
+2. Escriba su nombre completo en minúsculas respetando los espacios.
+    
+    a. Imprima en la pantalla su nombre completo en mayúscula. (e.g GUIDO VON ROSSUM)
+    
+    b. Imprima en la pantalla su nombre completo con solo las primeras letras en mayúsculas. (e.g Guido Von Rossum)
+    
+3. Añada el siguiente formato^[https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting] al texto: '2.45535 dolares equivale a $CLP1808.12'
+    
+    a. De '2.45535' a 2.45 (dos decimales)
+
+    b. 'dolares' a texto
+
+    c. De '1808.12' a 1808 (número entero)
+    
+4. ¿Cuanto es '2' + '25'?
+
+## Lógica Booleana
+
+1. ¿Qué operaciones lógicas puedo aplicar?
+
+2. Considerando el siguiente texto: “*Hay ciertas cosas que el dinero no puede comprar, para todo lo demás existe mastercard*”. Responda:
+
+    a. ¿Se encuentra la letra 'z'?
+    
+    b. ¿Se encuentra la letra 'm'?
+    
+    c. ¿Se encuentra la palabra 'visa'?
+
+3. Muestre que se cumple la ley de De Morgan.
+
+\newpage
+# Apéndice
+
+Table: Ley de De Morgan
+
+| A     | B     | A and B | not(A and B)      | not A or not B                  |
+|-------|-------|---------|-------------------|---------------------------------|
+| True  | False | False   | not(False) = True | not(True) or not(False) = True  |
+| False | True  | False   | not(False) = True | not(False) or not(True) = True  |
+| True  | True  | True    | not(True) = False | not(True) or not(True) = False  |
+| False | False | False   | not(False) = True | not(False) or not(False) = True |

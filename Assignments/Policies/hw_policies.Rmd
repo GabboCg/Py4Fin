@@ -20,7 +20,7 @@ output:
     fig_caption: yes
     dev: cairo_pdf
     latex_engine: xelatex
-    template: "latex/template.tex"
+    template: "Latex/template.tex"
 nocite: '@*'
 ---
 

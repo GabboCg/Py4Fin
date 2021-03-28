@@ -1,0 +1,326 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas 
+author: "Secuencias & Estructuras de Datos - Pauta"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1Ec-TmpO6_eD8X67j8xFe8Yn22jtVqs-L?usp=sharing)
+
+# Estructuras de Datos Básicas
+
+Como regla general, las estructuras de datos son objetos que contiene otros objetos (e.g escalares) como secuencias. En Python se tiene las siguientes estructuras de datos *built-in*:
+
+Table: Tipos de Estructura de Datos
+
+| Estructura  | Ejemplo                     | Brackets | índice | Elementos Repetidos | Mutable | Operaciones de Conjuntos |
+|:------------|:----------------------------|:--------:|:------:|:-------------------:|:-------:|:------------------------:|
+| Lista       | A = [1,2,'hola']            | [ ]      | Sí     | Sí                  | Sí      | No                       |
+| Tupla       | B = (3,3,5)                 | ()       | Sí     | Sí                  | No      | No                       |
+| Diccionario | D = {'Día':01,'Mes':3}      | {}       | Sí     | Sí                  | Sí      | No                       |
+| Conjunto    | C = {6,7,8}                 | {}       | No     | No                  | No      | Sí                       |
+
+## Lista (`list`)
+
+1. Construya una lista que contenga el nombre de las siguientes empresas tecnológicas: 'Facebook', 'Apple', 'Amazon' y 'Netflix'.
+
+    a. Muestre el primer y último elemento de la lista creada.
+    
+        ```{python}
+        faan = ['Facebook', 'Apple', 'Amazon', 'Netflix']
+        
+        # n° de elementos en la lista
+        len(faan)
+        
+        # solo el primer elemento 
+        faan[0]
+        
+        # solo el segundo elemento 
+        faan[1]
+        
+        # solo el tercer elemento 
+        faan[2]
+        
+        # solo el último elemento
+        faan[3]
+        ```
+
+        ```{python}
+        # todos los elementos
+        faan[:]
+        
+        # primer elemento más todos los demás
+        faan[0:]
+        
+        # segundo elemento más todos los demás
+        faan[1:]
+        
+        # primer elemento hasta el tercer elemento (inclusive), el intervalo será [,)
+        faan[0:3]
+        
+        # seleccionar todo usando un índice inexistente en la lista pero mayor al existente
+        faan[0:1000]
+        ```
+
+    b. Muestre el primer y último elemento de la lista creada usando índices negativos.
+    
+        ```{python}
+        # primer elemento
+        faan[-4]
+        
+        # último elemento
+        faan[-1]
+        ```
+
+    c. Agregue "Nvidia" al ínicio de la lista. ¿Como lo agrego en la cuarta posición?
+    
+        ```{python}
+        faan.insert(0, 'Nvidia') # in-place 
+        faan.insert(3, 'Nvidia') # cuarta posición (in-place)
+        ```
+
+    d. Agregue "Google" al final de la lista.
+    
+        ```{python}
+        # importante (in-place) por default es la última posición
+        faan.append('Google') 
+        ```
+        
+    e. ¿Cuantos elementos tiene la lista hasta ahora?
+
+        ```{python}
+        len(faan)
+        ```
+
+    f. En que posición se ubica la empresa 'Apple'.
+
+        ```{python}
+        # mostrará la primera posición que contenga el elemento, 
+        # pero no todos los que existan en la lista
+        faan.index('Apple') 
+        ```
+
+    g. Elimine "Nvidia" y "Netflix" de la lista.
+    
+        ```{python}
+        # forma 1
+        del faan[faan.index('Nvidia')] # mostrará el primero 
+        del faan[faan.index('Netflix')]
+        
+        # forma 2 
+        faan.pop(faan.index('Nvidia')) # .pop() por default remueve el último
+        faan.pop(faan.index('Netflix'))
+        
+        # forma 3
+        faan.remove('Nvidia')
+        faan.remove('Netflix')
+        ```
+
+    h. Ordene de mayor a menor la lista según el número de caracteres de cada elemento en la lista.
+    
+        ```{python}
+        faan.sort(key=len)
+        ```
+\newpage
+2. Construya las siguientes listas:
+
+    * parte_a = `[[0, 'a'], [1, 'b']]`
+
+    * parte_b = `[[2, 'c'], [3, 'd']]`
+
+    a. Concatene o combine ambas listas. ¿En que se diferencia concatenar con `+` y `extend`?
+    
+        ```{python}
+        parte_a = [[0, 'a'], [1, 'b']]
+        parte_b = [[2, 'c'], [3, 'd']]
+        
+        lista_combinada1 = parte_a + parte_b
+        
+        # usando extend
+        parte_a.extend(parte_b) # in-place
+        ```
+
+    b. Muestre el segundo elemento de la lista generada en (a). 
+    
+        ```{python}
+        # elementos en la lista anidada
+        lista_combinada1[0]
+        lista_combinada1[0][0]
+        lista_combinada1[0][1]
+        ```
+    
+3. Genere lista que contenga desde el 1 hasta el 10.
+
+    a. Ordene la lista de mayor a menor. ¿En que se diferencia ordenar con `sort` y `sorted`?
+    
+        ```{python}
+        num_list = list(range(1, 11))
+        
+        # sort
+        num_list.sort(reverse=True) # in-place
+        
+        # sorted (bult-in)
+        sorted(num_list) 
+        ```
+    
+    b. Seleccione los valores cuyo índice sea par.
+    
+        ```{python}
+        num_list[::2]
+        ```
+
+## Tupla (`tuple`)
+
+Se creará una tupla (`tuple`) si se utiliza coma (,) para separar valores cuando se asigna a una única variable:
+
+```{python, echo = TRUE}
+tupla = 1, 2, 'Facebook', 'Amazon'
+tupla
+```
+
+Que incluso pueden almacenar listas (`list`):
+
+```{python}
+tupla_anidada2 = (1,2), ('Facebook', 'Amazon'), ['Apple', 'Netflix']
+tupla_anidada2 
+```
+
+Solo se puede modificar un elemento de la tupla (`tuple`) que permita modificación, por ejemplo la lista (`list`):
+
+```{python}
+tupla_anidada2[2].append('Google')
+tupla_anidada2
+```
+
+Permite concatenación mediante el signo `+`:
+
+```{python}
+('Facebook', 'Amazon') + ('Apple', 'Netflix') 
+```
+
+E incluso multiplicación de elementos usando `*`:
+
+```{python}
+('Facebook', 'Amazon') * 3
+```
+
+Para forzar una lista (`list`) a que sea tupla (`tuple`) basta con:
+
+```{python}
+tuple([1, 2, 3, 4])
+```
+
+## Diccionario (`dict`)
+
+Los diccionarios (`dict`) son estructuras de datos mutables, se caracterizan con el uso de llave-valor (*key-value*).
+
+```{python}
+dict1 = {'Name' : 'Janet Yellen', 
+         'Country' : 'United States',
+         'Profession' : ' United States secretary of the treasury',
+         'Age' : 74}
+        
+type(dict1)
+```
+
+Para acceder a los valores asociado a la llave, basta con usar `[ ]` y escribir la el nombre de la llave:
+
+```{python}
+print(dict1['Name'], dict1['Age']) 
+```
+
+Hereda los métodos `.keys()` para accader al nombre de las llaves:
+
+```{python}
+dict1.keys() # keys (llaves)
+```
+
+Hereda los métodos `.values()` para accader a los valores asociados a las llaves:
+
+```{python}
+dict1.values() # valores
+```
+
+Mediante `.items()` se accede a la llave (*key*) y los valores (*values*):
+
+```{python, eval=FALSE}
+dict1.items()  # items = keys + values
+```
+
+## Conjunto (`set`)
+
+La estructura de datos de conjunto (`set`) permite solo valores únicos. Para crear un conjunto (`set`), se crea una lista y luego `set()`: 
+
+```{python}
+set1 = set([1, 2, 3, 4, 5, 5])
+set1
+```
+
+```{python}
+set2 = set([3, 4, 5, 6, 9, 9, 7])
+set2
+```
+
+Podemos aplicar operaciones de conjuntos:
+
+* Todo los items que están en `set1` y `set2`:
+    
+    ```{python}
+    # union
+    set1.union(set2)
+    ```
+    
+* Items que estén en `set1` y `set2`
+    
+    ```{python}
+    # intersección
+    set1.intersection(set2)
+    ```
+    
+* Items que estén en `set1` pero no en `set2`:
+    
+    ```{python}
+    set1.difference(set2)
+    ```
+
+* Items que estén en `set2` pero no en `set1`:
+
+    ```{python}
+    set2.difference(set1)
+    ```
+
+* Items que estén en `set1` o `set2` pero no en ambos:
+
+    ```{python}
+    set1.symmetric_difference(set2) 
+    ```

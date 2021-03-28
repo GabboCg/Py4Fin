@@ -1,0 +1,213 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas
+author: "Secuencias & Estructuras de Datos"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1DxG-xaXOksSPinno9JAqsx-tqneNheQ8?usp=sharing)
+
+# Estructuras de Datos Básicas
+
+Como regla general, las estructuras de datos son objetos que contiene otros objetos (e.g escalares) como secuencias. En Python se tiene las siguientes estructuras de datos *built-in*:
+
+Table: Tipos de Estructura de Datos
+
+| Estructura  | Ejemplo                     | Brackets | índice | Elementos Repetidos | Mutable | Operaciones de Conjuntos |
+|:------------|:----------------------------|:--------:|:------:|:-------------------:|:-------:|:------------------------:|
+| Lista       | A = [1,2,'hola']            | [ ]      | Sí     | Sí                  | Sí      | No                       |
+| Tupla       | B = (3,3,5)                 | ()       | Sí     | Sí                  | No      | No                       |
+| Diccionario | D = {'Día':01,'Mes':3}      | {}       | Sí     | Sí                  | Sí      | No                       |
+| Conjunto    | C = {6,7,8}                 | {}       | No     | No                  | No      | Sí                       |
+
+## Lista (`list`)
+
+1. Construya una lista que contenga el nombre de las siguientes empresas tecnológicas: 'Facebook', 'Apple', 'Amazon' y 'Netflix'.
+
+    a. Muestre el primer y último elemento de la lista creada.
+
+    b. Muestre el primer y último elemento de la lista creada usando índices negativos.
+
+    c. Agregue "Nvidia" al ínicio de la lista. ¿Como lo agrego en la cuarta posición?
+
+    d. Agregue "Google" al final de la lista.
+
+    e. ¿Cuantos elementos tiene la lista hasta ahora?
+
+    f. En que posición se ubica la empresa 'Apple'.
+
+    g. Elimine "Nvidia" y "Netflix" de la lista.
+    
+    h. Ordene de mayor a menor la lista según el número de caracteres de cada elemento en la lista.
+    
+2. Construya las siguientes listas:
+
+    * parte_a = `[[0, 'a'], [1, 'b']]`
+
+    * parte_b = `[[2, 'c'], [3, 'd']]`
+
+    a. Concatene o combine ambas listas. ¿En que se diferencia concatenar con `+` y `extend`?
+
+    b. Muestre el segundo elemento de la lista generada en (a). 
+    
+3. Genere lista que contenga desde el 1 hasta el 10.
+
+    a. Ordene la lista de mayor a menor. ¿En que se diferencia ordenar con `sort` y `sorted`?
+
+    b. Seleccione los valores cuyo índice sea par.
+
+## Tupla (`tuple`)
+
+Se creará una tupla (`tuple`) si se utiliza coma (,) para separar valores cuando se asigna a una única variable:
+
+```{python, echo = TRUE}
+tupla = 1, 2, 'Facebook', 'Amazon'
+tupla
+```
+
+Que incluso pueden almacenar listas (`list`):
+
+```{python}
+tupla_anidada2 = (1,2), ('Facebook', 'Amazon'), ['Apple', 'Netflix']
+tupla_anidada2 
+```
+
+Solo se puede modificar un elemento de la tupla (`tuple`) que permita modificación, por ejemplo la lista (`list`):
+
+```{python}
+tupla_anidada2[2].append('Google')
+tupla_anidada2
+```
+
+Permite concatenación mediante el signo `+`:
+
+```{python}
+('Facebook', 'Amazon') + ('Apple', 'Netflix') 
+```
+
+E incluso multiplicación de elementos usando `*`:
+
+```{python}
+('Facebook', 'Amazon') * 3
+```
+
+Para forzar una lista (`list`) a que sea tupla (`tuple`) basta con:
+
+```{python}
+tuple([1, 2, 3, 4])
+```
+
+## Diccionario (`dict`)
+
+Los diccionarios (`dict`) son estructuras de datos mutables, se caracterizan con el uso de llave-valor (*key-value*).
+
+```{python}
+dict1 = {'Name' : 'Janet Yellen', 
+         'Country' : 'United States',
+         'Profession' : ' United States secretary of the treasury',
+         'Age' : 74}
+        
+type(dict1)
+```
+
+Para acceder a los valores asociado a la llave, basta con usar `[ ]` y escribir la el nombre de la llave:
+
+```{python}
+print(dict1['Name'], dict1['Age']) 
+```
+
+Hereda los métodos `.keys()` para accader al nombre de las llaves:
+
+```{python}
+dict1.keys() # keys (llaves)
+```
+
+Hereda los métodos `.values()` para accader a los valores asociados a las llaves:
+
+```{python}
+dict1.values() # valores
+```
+
+Mediante `.items()` se accede a la llave (*key*) y los valores (*values*):
+
+```{python, eval=FALSE}
+dict1.items()  # items = keys + values
+```
+
+## Conjunto (`set`)
+
+La estructura de datos de conjunto (`set`) permite solo valores únicos. Para crear un conjunto (`set`), se crea una lista y luego `set()`: 
+
+```{python}
+set1 = set([1, 2, 3, 4, 5, 5])
+set1
+```
+
+```{python}
+set2 = set([3, 4, 5, 6, 9, 9, 7])
+set2
+```
+
+Podemos aplicar operaciones de conjuntos:
+
+* Todo los items que están en `set1` y `set2`:
+    
+    ```{python}
+    # union
+    set1.union(set2)
+    ```
+    
+* Items que estén en `set1` y `set2`
+    
+    ```{python}
+    # intersección
+    set1.intersection(set2)
+    ```
+    
+* Items que estén en `set1` pero no en `set2`:
+    
+    ```{python}
+    set1.difference(set2)
+    ```
+
+* Items que estén en `set2` pero no en `set1`:
+
+    ```{python}
+    set2.difference(set1)
+    ```
+
+* Items que estén en `set1` o `set2` pero no en ambos:
+
+    ```{python}
+    set1.symmetric_difference(set2) 
+    ```

@@ -1,0 +1,143 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas
+author: "Estructura de Control Iterativo"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/12k65hDIjtIq_MeytND6zgAtPAy5y0xgu?usp=sharing)
+
+# *Loop* (ciclo) con & sin `range()`
+
+1. Construya una lista que contenga el nombre de las siguientes empresas tecnológicas: 'Facebook', 'Apple', 'Amazon' y 'Netflix'.
+
+    a. Muestre en la consola cada elemento en la lista.
+
+    b. Muestre en la consola cada elemento en la lista con su respectivo índice.
+
+    c. Muestre en la consola cada letra que compone a cada elemento (empresa) en la lista.
+    
+2. Genere una secuencia desde el 0 hasta el 10 y muestre cada valor en la consola.
+
+3. Genere una secuencia desde el 0 hasta el 10 y muestre cada valor en la consola de mayor a menor.
+
+# Condicionales
+
+1. Construya la siguiente secuencia de números incluyendo los `None`: 1, 2, `None`, 4, 5, 6, `None`. Luego utilizando un *loop* (ciclo) sume los elementos que son númericos (no considerar `None`)
+
+2. Construya la siguiente secuencia de números incluyendo los `None`: 1, 2, `None`, 4, 5, 6, `None`. Luego utilizando un *loop* (ciclo) sume todos los elementos númericos antes del primer `none`.
+
+3. Construya la siguiente secuencia de números: 1, 2, 3, 4, 5, 6, 7. Luego utilizando un *loop* (ciclo) sume los elementos menores al número 5.
+
+4. Sume todo los números desde 0 hasta 15 que sean múltiplos de 3 o 5.
+
+5. Construya un *loop* (ciclo) que genere la secuencia de Fibonacci la que se caracteriza porque cada número es la suma de los dos números previos. Por ejemplo los 14 primeros número de la secuencia son: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233.
+
+# *Comprehension*
+
+
+Una "*list comprehension*" permite formar nuevas listas (`list`) filtrando los elementos de una colección (secuencia) a partir de una sola expresión. Su forma tradicional es la siguiente:
+
+```python
+[expr for val in collection if condition]
+```
+lo anterior es quivalente con:
+
+```python
+res = []
+for val in collection:
+  if condition:
+    result.append(expr)
+```
+    
+Por ejemplo:    
+    
+```{python}
+list2 = ['Facebook', 'Apple', 'Amazon', 'Netflix']
+
+list2_title = [elem.upper() for elem in list2]
+list2_title 
+```
+
+Siendo equivalente en su forma estandar con:
+
+```{python}
+list2_title2 = []
+
+for elem in list2:
+  list2_title2.append(elem.upper())
+
+list2_title2
+```
+
+Incluso puedo agregar el condicionale `else` lo que cambia un poco la estructura de la *list comprehension* pero el objetivo es el mismo:
+
+```{python}
+[num if (num%3 == 0) or (num%5 == 0) else None for num in range(16)]
+```
+
+Siendo equivalente en su forma estandar con:
+
+```{python}
+res2 = []
+
+for num in range(16):
+  if (num%3 == 0) or (num%5 == 0):
+    res2.append(num)
+  else:
+    res2.append(None)
+
+res2
+```
+
+Tambien se puede utilizar para "aplanar" (*flatten*) listas anidadas:
+
+```{python}
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+[sub_elem for elem in nested_list for sub_elem in elem]
+```
+
+Siendo equivalente en su forma estandar con:
+
+```{python}
+flattened_list = []
+
+for elem in nested_list:
+  for sub_elem in elem:
+    flattened_list.append(sub_elem)
+
+flattened_list
+```
+
+Para ver *comprehension* de diccionarios (`dict`) y tuplas (`tuple`) ver la página 67 y 68 del libro *Python for Data Analysis: Data Wrangling with Pandas, Numpy, and Ipython* de Wes McKinney.

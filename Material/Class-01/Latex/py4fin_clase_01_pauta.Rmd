@@ -1,0 +1,359 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas
+author: "Variables, Convenciones & Tipos de Datos - Pauta"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px }](https://colab.research.google.com/drive/1bdEjbKr75GgN5ahAm7EDHmOUbIferkoc?usp=sharing)
+
+# Variables 
+
+Una Variable en Python es un espacio en la memoria RAM de tu computadora donde puedes guardar resultados y objetos.
+Para crear una variable ocupamos una "asignación", es decir, una expresión con una igualdad. Lo que está a la izquierda del signo igual será el nombre de la variable donde quedará guardado el valor, y lo que está a la derecha del igual es el valor a guardar (*Aplicaciones de Manejo de Datos, 2020*).
+
+Por ejemplo, creemos la variable `ncel` y guardemos el valor `12345678`:
+
+```{python}
+ncel = 12345678 # el simbolo = es el de asignación
+ncel
+```
+
+En python no es necesario terminar la linea de código con ; (semicolons), pero si cumple un rol:
+
+```{python}
+a = 1; b = 2; c = 3
+```
+
+También se puede asignar valores a varias variables en una sola linea de código:
+
+```{python}
+a, b, c = 1, 2, 3
+```
+
+# Convenciones
+
+1. Existen nombre de variables reservadas que no se deben usar debido que están reservados por Python:
+
+    ```{python, eval=FALSE}
+    # librería
+    import keyword
+    
+    # nombres reservados
+    keyword.kwlist
+    ```
+
+2. Los comentarios simples se realizan con #.
+
+    ```{python, eval=FALSE}
+    # esto es un comentario simple 
+    ```
+
+3. Los comentarios multi-line comienzan con ''' y terminan con '''.
+
+    ```{python, eval=FALSE}
+    """
+    esto es 
+    un 
+    comentario
+    multiple
+    """
+    ```
+
+\newpage
+# Tipos de Datos (escalares)
+
+Existen cuatro tipos de datos o escalares: númericos (**integers** y **floats**),   **strings** (cadenas de texto) y **booleanos** (True & False).
+
+```{python, eval=FALSE}
+'''Tipos básicos de datos'''
+# integers
+integer = 2 
+type(integer) # identificación
+isinstance(integer, int)  # identificación 
+
+# float
+floating = 3.14
+type(floating)
+isinstance(floating, float)
+
+# string
+string = "hola mundo"
+type(string)
+isinstance(string, str)
+
+# boolean
+boolean = True
+type(boolean)
+isinstance(boolean, bool)
+
+'''casting'''
+# integers
+int('1')
+int(True)
+int(False)
+
+# float
+float('1')
+float(True)
+float(False)
+
+# string
+str(1)
+str(True)
+str(False)
+
+# boolean
+bool(1)
+bool(0)
+```
+
+1. Cuales son los tipos de datos en Python? ¿Cómo puedo identificarlos y convertirlos en otros tipos de datos? 
+
+## Expresiones numéricas
+
+1. ¿Qué operaciones numericas puedo aplicar?
+
+    ```{python}
+    a = 4
+    b = 3
+  
+    a + b # suma
+    ```
+
+
+    ```{python}
+    a - b # resta
+    
+    a * b # multiplicación
+
+    a / b # división
+
+    a % b # modulo
+
+    a // b # parte entera
+
+    a ** b # potencia
+    ```
+
+2. Cual es el resultado de:
+
+    $$
+    1+2^3/4 \times 5
+    $$
+    
+    ```{python}
+    1 + 2 ** 3 / 4 * 5
+    ```
+    
+3. Calcule el valor presente de un flujo de efectivo de $\$1000$ por un total de 5 períodos. Asuma una tasa de descuento de $10\%$. El valor presente (VP) es igual a:
+
+    $$
+    VP = \sum^{T}_{t=0} \frac{F_t}{(1+r)^t}
+    $$
+    
+    ```{python}
+    valor_presente = 1000 / (1 + 0.1) ** 1 +  1000 / (1 + 0.1) ** 2 + 1000 / (1 + 0.1) ** 3 
+    valor_presente += 1000 / (1 + 0.1) ** 4 + 1000 / (1 + 0.1) ** 5
+    print('El valor presente es: ' + str(valor_presente))
+    ```
+    
+## Cadenas de Texto
+
+1. Considerando el siguiente texto: “*Hay ciertas cosas que el dinero no puede comprar, para todo lo demás existe mastercard*”. Responda:
+
+    a. ¿Cuántos caracteres contiene el texto?
+    
+        ```{python}
+        texto = 'Hay ciertas cosas que el dinero no puede comprar, para todo lo demás existe mastercard'
+        len(texto)
+
+        texto[0] # primer caracter
+   
+        texto[0:5]  # primeros 5 caracteres
+    
+        texto[-1] # último caracter
+        ```
+    
+    b. ¿Cuántas veces se encuentra la letra r? ¿Cuántas veces se encuentra la letra r luego de la “,”?
+
+        ```{python}
+        texto.count('r')
+        texto.count('r', texto.find(','))
+        ```
+
+    c. ¿En que posición está “mastercard”?
+
+        ```{python}
+        texto.find('mastercard')
+        ```
+    
+    d. Reemplace “mastercard” por “Mastercard”.
+    
+        ```{python}
+        texto.replace('mastercard', 'Mastercard')
+        ```
+    
+    
+2. Escriba su nombre completo en minúsculas respetando los espacios.
+    
+    a. Imprima en la pantalla su nombre completo en mayúscula. (e.g GUIDO VON ROSSUM)
+  
+        ```{python}
+        lower_name = "guido von rossum"
+        lower_name.upper()
+        ```
+    
+    b. Imprima en la pantalla su nombre completo con solo las primeras letras en mayúsculas. (e.g Guido Von Rossum)
+    
+        ```{python}
+        lower_name.title()
+        ```
+    
+3. Añada el siguiente formato^[https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting] al texto: '2.45535 dolares equivale a $CLP1808.12'
+    
+    a. De '2.45535' a 2.45 (dos decimales)
+
+    b. 'dolares' a texto
+
+    c. De '1808.12' a 1808 (número entero)
+    
+        ```{python}
+        template = '{0:.2f} {1:s} equivale a $CLP{2:d}'
+        template.format(2.45535, 'dolares', 1808)
+        ```
+    
+4. ¿Cuanto es '2' + '25'?
+    
+    ```{python}
+    '2' + '25' # concatenación, deben ser str()
+    ```
+
+\newpage
+## Lógica Booleana
+
+1. ¿Qué operaciones lógicas puedo aplicar?
+    
+    Operadores de comparación:
+    
+    ```{python}
+    a = 4
+    b = 3
+    
+    a > b # mayor que 
+    
+    a < b # menor que
+  
+    a == b # igual a
+    
+    a != b  # distinto a
+    
+    a >= b  # mayor o igual a
+    
+    a <= b  # menor o igual a
+    ```
+
+    operadores lógicos:
+    
+    ```{python}
+    x = True
+    y = False
+    
+    x and y # True y False = False
+    
+    x or y # True o False = True
+    
+    not x # no True = False 
+    ```
+
+2. Considerando el siguiente texto: “*Hay ciertas cosas que el dinero no puede comprar, para todo lo demás existe mastercard*”. Responda:
+
+    a. ¿Se encuentra la letra 'z'?
+    
+        ```{python}
+        texto = 'Hay ciertas cosas que el dinero no puede comprar, para todo lo demás existe mastercard'
+        'z' in texto
+        ```
+  
+    b. ¿Se encuentra la letra 'm'?
+
+        ```{python}
+        'm' in texto
+        ```
+    
+    c. ¿Se encuentra la palabra 'visa'?
+
+        ```{python}
+        'visa' in texto
+        ```
+
+3. Muestre que se cumple la ley de De Morgan.
+    
+    ```{python}
+    A = True
+    B = False
+    
+    not(A and B) == (not(A) or not(B))
+    ```
+    
+    ```{python}
+    A = False
+    B = True
+    
+    not(A and B) == (not(A) or not(B))
+    ```
+    
+    ```{python}
+    A = True
+    B = True
+    
+    not(A and B) == (not(A) or not(B))
+    ```
+    
+    ```{python}
+    A = False
+    B = False
+    
+    not(A and B) == (not(A) or not(B))
+    ```
+
+# Apéndice
+
+Table: Ley de De Morgan
+
+| A     | B     | A and B | not(A and B)      | not A or not B                  |
+|-------|-------|---------|-------------------|---------------------------------|
+| True  | False | False   | not(False) = True | not(True) or not(False) = True  |
+| False | True  | False   | not(False) = True | not(False) or not(True) = True  |
+| True  | True  | True    | not(True) = False | not(True) or not(True) = False  |
+| False | False | False   | not(False) = True | not(False) or not(False) = True |
