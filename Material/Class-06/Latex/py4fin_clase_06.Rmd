@@ -1,0 +1,150 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas
+author: "Aplicación: Capital Asset Pricing Model"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/drive/1Mh4IJeMLaN_J5b9hBrKqdyOev_V4gErC?usp=sharing)
+
+Desarrollado por William Sharpe (1964), el CAPM (*Capital Asset Pricing Model*) parte de la idea que toda inversión contiene dos tipos de riesgo: sistemático (riesgo de mercados que no se pueden diversificar) y no sistemático (componente del retorno de la acción que no correlaciona con los movimientos del mercado). la diversificación de portafolios puede remover el riesgo no sistemático, sin embargo, no es el caso para el riesgo sistemático. 
+
+El CAPM es una forma de medir el riesgo sistemático. William Sharpe encuentra que el retorno de una acción o portafolio es:
+
+$$
+R_{i,t} = R_f + \beta_i (R_{m,t} - R_f)
+$$
+
+Donde: 
+
+* $R_{i,t}$: Retorno esperado del portafolio o acción.
+
+* $R_f$: Tasa libre de riesgo.
+
+* $R_{m,t}$: Retorno esperado del mercado. 
+
+* $R_{m,t} - R_f$: *Equity market premium*
+
+* $\beta_i$: El beta de CAPM.
+
+De acuerdo al CAPM, el $\beta$ es la única medida relevante de riesgo, definido como:
+
+$$
+\beta_{i} = \frac{cov(R_{p,t}, R_{m,t})}{\sigma^{2}_m} 
+$$
+
+Si se considera el $\beta$ como el segundo coeficiente de una regresión lineal simple por MCO:
+
+$$
+R_{i,t} - R_{f} = \alpha_{i} + \beta_{i} (R_{m,t} - R_f) + \varepsilon_{i,t}
+$$
+
+Si bien el modelo anterior no es el CAPM, la regresión permite estimar el $\beta$ de CAPM. De hecho si $\alpha_i$ = 0 y $Cov(R_{m,t}, \varepsilon_{i,t}) = 0$ entonces:
+
+$$
+\begin{aligned}
+R_{i,t} - R_{f} &= \beta_{i} (R_{m,t} - R_f) \\
+R_{i,t}  &= R_{f} + \beta_{i} (R_{m,t} - R_f)
+\end{aligned}
+$$
+
+Se obtiene la ecuación de CAPM.
+
+\newpage
+# Aplicación
+
+1. Importe los archivos `stocks.pkl`, `sp500.pkl` y `rfree.pkl`.
+
+    * `stocks.pkl`: índices de Facebook, Apple, Amazon, Netflix y Google desde 2014:12 hasta 2020:12.
+    
+    * `sp500.pkl`: Precio al cierre del índice del S&P 500 desde 2014:12 hasta 2020:12.
+    
+    * `rfree.pkl`: Tasa libre de riesgo desde 2015:01 hasta 2020:12.
+    
+2. Genere una función que permita calcular el retorno aritmético, definido como:
+
+    $$
+    R_{i,t} = \frac{P_{i,t} - P_{i,t-1}}{P_{i,t-1}} \quad i = 1,..,5 \quad t = 1,..,73
+    $$
+
+3. Aplique la función creada en (2) a cada elemento (precios al cierre) almacenado en el diccionario.
+
+4. Aplique la función creada en (2) al índice del S&P 500. Luego reste la tasa libre de riesgo.
+
+    $$
+    R_{m,t} = R_{sp500} - R_f
+    $$
+
+5. Genere una función que permita ponderar cada retorno por un peso fijo. Los pesos deben sumar 1 y el *output* debe tener restada la tasa libre de riesgo $R_f$.
+
+    $$
+    \begin{aligned}
+    R_{p,t} & = \mathbf{R}\cdot \mathbf{W} = \begin{pmatrix}
+    r_{11} & r_{12} & \dots  & r_{1i} \\
+    r_{21} & r_{22} & \dots  & r_{2i} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    r_{t1} & r_{t2} & \dots  & r_{ti}
+    \end{pmatrix}_{t\times i} \cdot \begin{pmatrix}
+    w_{1}  \\ 
+    w_{2}  \\
+    \vdots \\
+    w_{i}  \\
+    \end{pmatrix}_{i \times 1}
+    \end{aligned}
+    $$
+
+    Pruebe su función con los siguientes pesos:
+    
+    Table: Indice & pesos
+    
+    | Índice | Pesos |
+    |--------|-------|
+    | AAPL   | 0.25  |
+    | AMZN   | 0.25  |
+    | FB     | 0.20  |
+    | GOOG   | 0.20  |
+    | NFLX   | 0.10  |
+
+6. Genere una función que permita obtener los $\hat{\beta}$ de una regresión lineal mediante su forma matricial:
+
+    $$
+    \hat{\beta} = (\mathbf{X}'\mathbf{X})^{-1}(\mathbf{X}'y) 
+    $$
+
+7. Muestre que el resultado anterior es igual a:
+
+    $$
+    {\hat{\beta}} = \frac{cov(R_{p,t}, R_{m,t})}{\sigma^{2}_m} 
+    $$
+
+8. Verifique el resultado obtenido en (6) utilizando la librería `statsmodels`.

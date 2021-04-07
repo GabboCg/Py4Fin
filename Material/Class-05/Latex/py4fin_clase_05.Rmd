@@ -1,0 +1,192 @@
+---
+header-includes:
+  - \usepackage[spanish]{babel}
+  - \usepackage{svg}
+title: |
+  ![](latex/logo_uchile.png){width=0.45in}  
+  ENGIN 604 Introducción a Python para las Finanzas
+author: "Introducción a NumPy"
+prof: "Gabriel E. Cabrera"
+ta: "Alex Den Braber"
+# due: "Jueves 11 de Marzo"
+# submit: "engin604assignments@gmail.com"
+# page: "5 páginas"
+# bibliography: "latex/references.bib"
+# biblio-style: "acm"
+link-citations: yes
+citecolor: blue
+urlcolor: blue
+linkcolor: blue
+geometry: margin=0.75in
+fontsize: 10pt
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    highlight: "default"
+    number_sections: yes
+    fig_caption: yes
+    dev: cairo_pdf
+    latex_engine: pdflatex
+    template: "Latex/template.tex"
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Open In Colab](Latex/colab-badge.pdf){height=15px}](https://colab.research.google.com/drive/1530VYoAWRzdhe-wem-e8PJFiVf0FLvIv?usp=sharing)
+
+# Arrays
+
+Los objetos como las listas (`list`) son muy convenientes debido a su flexibilidad (mutables), sin embargo, este tipo de estructura tiene un costo, ocupan mucha memoria y su desempeño es bajo. Las aplicaciones financieras y/o cientificas necesitan operaciones de alto desempeño en estructuras especiales. Una de las estructura de datos más importantes son los *array*. Los *arrays* suelen estructurar otros objetos del mismo tipo de dato en las filas como en las columnas.
+
+Si se asume que el tipo de dato más relevante es `float` e `int` (la idea se puede extender a otros tipos de datos), un `array` de una dimensión representaría, matemáticamente hablando, un vector fila o columna (depende como se defina). Los casos más comunes son las matrices que sería un `array` de dos  dimensiones $i\times j$ (fila y columna).
+
+Se necesita entonces una clase capaz de trabajar eficientemente con *arrays*. La solución es la librería **NumPy** con su clase `ndarray`. Si se quiere crear la matriz $X$:
+
+$$
+X = \begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix}
+$$
+
+Con la listas (`list`):
+
+```{python}
+x = list([[1,2,3],[4,5,6],[7,8,9]])
+x
+```
+
+Donde cada elemento anidado a la lista sería una fila de la matriz $X$ y cada elemento del elemento anidado una columna. Si se desa ver el valor de la posición $2\times 2$:
+
+```{python}
+x[1][1]
+```
+
+Sin embargo, python interpreta a la variable $X$ como una lista y no como un `array`. Utilizando `numpy`
+
+```{python}
+import numpy as np
+
+mat_x = np.array(x) # se genera el array
+mat_x
+```
+
+Ahora la variable `mat_x` es un *array* y como tal posee los siguientes atributos: 
+
+* Dimensiones:
+    
+    ```{python}
+    mat_x.ndim # posee dos dimensiones
+    ```
+
+* Los valores de las dimensiones:
+
+    ```{python}
+    m, n = mat_x.shape # número de filas y columnas
+    m, n
+    ```
+
+* Todos los elementos:
+
+    ```{python}
+    mat_x.size
+    ```
+
+* Nueva clase:
+
+    ```{python}
+    type(mat_x)
+    ```
+
+la versión `range()` que se encuentra *built-in* en Python, existe en **NumPy** como `arange()`. 
+
+```{python}
+np.arange(1,10).reshape(-1,3)
+```
+
+La documentación de la librería se encuentra en https://numpy.org/doc/stable/reference/.
+
+# NumPy
+
+1. Genere la siguiente matriz:
+
+      $$
+      A = \begin{pmatrix}
+      3 & 0 & 2 \\
+      2 & 0 & 2 \\
+      0 & 1 & 1
+      \end{pmatrix}
+      $$
+      
+      a. Encuentre la transpuesta de la matriz $A$.
+
+      b. Encuentre la matriz inversa de $A$.
+  
+      c. Muestre que se cumple: 
+
+          $$
+          AB = BA = I
+          $$
+
+          Donde $B$ es la matriz inversa de $A$ e $I$ la matriz indentidad.
+
+      d. Mediante matrices calcule el promedio de $A$.
+  
+2. Genere las siguientes matrices:
+  
+      $$
+      C = \begin{pmatrix}
+      2 & 4 \\
+      5 & -6 
+      \end{pmatrix}
+      \quad \text{y}  \quad
+      D = \begin{pmatrix}
+      9 & -3 \\
+      3 &  6 
+      \end{pmatrix}
+      $$
+  
+      a. Obtenga la suma entre $C$ y $D$.
+
+      b. Obtenga el producto punto entre $C$ y $D$.
+  
+3. Genere una función que mutliplique (no producto punto) dos matrices.
+
+# Números Aleatorios
+
+**NumPy** Posee su propio generador de números seudo-aleatorios (Mersenne Twister). El generador es una función matemática que genera una secuencia de "números aleatorios". Considera un parámetro para comenzar la secuencia de números, llamada semilla (`seed`). La función es determinística, es decir, con la misma semilla se producirá siempre la misma secuencia de números (la elección de la semilla no importa).
+
+1. Genere 10000 valores con una distribución normal estandar $\sim N(\mu = 0, \sigma = 1)$.
+
+    a. A partir de los valores creados genere una matriz $E$ cuya dimensiones sea $100 \times 100$. ¿Cuál es la diferencia entre `reshape()` y `resize()`?
+
+    b. "Aplane" la matriz $E$ y compruebe que efectivamente los datos se distribuyen con $\mu = 0$ y $\sigma = 0$.
+    
+# Sistema de Ecuaciones
+
+1. Use matrices para resolver los siguientes sistemas de ecuaciones:
+
+    a. 
+    
+    $$
+    \begin{aligned}
+      a + b + c = 6 \\
+    3a - 2b + c = 2 \\
+     2a + b - c = 1
+    \end{aligned}
+    $$
+
+    b.
+    
+    $$
+    \begin{aligned}
+    3a + 4b - 5c + d = 10 \\
+    2a + 2b + 2c - d = 5 \\
+     a - b + 5c - 5d = 7 \\
+              5a + d = 4
+    \end{aligned}
+    $$
