@@ -23,7 +23,7 @@ La nota final estará ponderada de la siguiente manera:
 * Tareas: 70% (máximo 2 integrantes)
 * Examen: 30% (incluye todo la materia del curso)
 
-## Métodología
+## Metodología
 
 El curso se desarrollará a través de clases expositivas y ejercicios prácticos utilizando Python.
 
