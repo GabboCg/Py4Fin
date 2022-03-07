@@ -1,7 +1,7 @@
 ---
 title: "&gt; Meet the Toolkit"
 author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
-date: 'Otoño 2021<br><br>`r icon::fa("link")` [bit.ly/2ObxeQa](https://bit.ly/2ObxeQa)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
+date: 'Otoño 2022<br><br>`r icons::icon_style(icons::fontawesome("link", style = "solid"), scale = 1, fill = "white")` [bit.ly/2ObxeQa](https://bit.ly/2ObxeQa)<br>`r icons::icon_style(icons::fontawesome("twitter", style = "brands"), scale = 1, fill = "white")` [GabboCg](https://twitter.com/gabbocg)'
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -25,7 +25,7 @@ layout: true
 ```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, dpi = 72)
 
-library(icon)      ## for FontAwesome icons (ozunconf17 project!)
+library(icons)      ## for FontAwesome icons (ozunconf17 project!)
 library(emo)       ## for emoji, obvs (github.com/hadley/emo)
 library(tidyverse) ## for data wrangling
 ```

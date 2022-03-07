@@ -1,7 +1,7 @@
 ---
 title: "&gt; Hello Python!"
 author: "Gabriel E. Cabrera, M.Sc.<br><span style = 'font-size: 50%;'>Universidad de Chile<br>Magister en Finanzas - Full Time</span>"
-date: 'Otoño 2021<br><br>`r icon::fa("link")`[bit.ly/3eiJZ5Y](https://bit.ly/3eiJZ5Y)<br>`r icon::fa("twitter")` [GabboCg](https://twitter.com/gabbocg)'
+date: 'Otoño 2022<br><br>`r icons::icon_style(icons::fontawesome("link", style = "solid"), scale = 1, fill = "white")` [bit.ly/3KkcvAV](https://py4fin-slide-01.netlify.app)<br>`r icons::icon_style(icons::fontawesome("twitter", style = "brands"), scale = 1, fill = "white")` [GabboCg](https://twitter.com/gabbocg)'
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -25,7 +25,7 @@ layout: true
 ```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, dpi = 72)
 
-library(icon)      ## for FontAwesome icons (ozunconf17 project!)
+library(icons)      ## for FontAwesome icons (ozunconf17 project!)
 library(emo)       ## for emoji, obvs (github.com/hadley/emo)
 library(tidyverse) ## for data wrangling
 ```
@@ -67,7 +67,7 @@ class: inverse, center, middle
 </div>
 
 <div align='center'>
-🧉 + ☕ Gabriel E. Cabrera  
+☕ Gabriel E. Cabrera  
 </div>
 
 <br>
@@ -76,27 +76,9 @@ class: inverse, center, middle
 
 <i class="fa fa-home"></i> &nbsp; [gcabrerag.rbind.io/teaching](http://gcabrerag.rbind.io/blog/_site/teaching) <br>
 
-<i class="fab fa-github"></i> &nbsp; [github/GabboCg](github/GabboCg) <br>
+<i class="fab fa-github"></i> &nbsp; [github/GabboCg](https://github.com/GabboCg) <br>
 
-<i class="fa fa-calendar"></i> &nbsp; Mie 16:00 - 17:00 (Horario de consultas)
-
-<!-- --- -->
-
-<!-- # ¿Quién más está involucrado? -->
-
-<!-- <div align='center'> -->
-<!--   <img style="border-radius: 50%; border:3px solid #ffffff;" src="https://pbs.twimg.com/profile_images/633276699069808640/v0lHH78a_400x400.jpg" width="150px"/> -->
-<!-- </div> -->
-
-<!-- <div align='center'> -->
-<!-- 👾 Alex Den Braber  -->
-<!-- </div> -->
-
-<!-- <br> -->
-
-<!-- <i class="fa fa-envelope"></i> &nbsp; [adenbraber@fen.uchile.cl](adenbraber@fen.uchile.cl) <br> -->
-
-<!-- <i class="fa fa-calendar"></i> &nbsp; Vie 15:30 - 16:50 (Horario de ayudantía) -->
+<i class="fa fa-calendar"></i> &nbsp; Dudas vía correo electrónico o después de clases.
 
 ---
 # ¿Sobre qué es este curso?
@@ -119,21 +101,21 @@ class: inverse, center, middle
 ---
 # Clases
 
-<i class="fas fa-university fa-lg"></i> &nbsp;  Online (Webex): https://fenuchile.webex.com/meet/gcabrerag </br> 
+<i class="fas fa-university fa-lg"></i> &nbsp; Híbrido = TecnoAulas H-101 + Zoom (online) </br> 
 
-<i class="fas fa-calendar-alt fa-lg"></i> &nbsp; Mar & Jue 9:30 - 10:50 </br> 
+<i class="fas fa-calendar-alt fa-lg"></i> &nbsp; Mar & Jue 9:30 - 10:50 + Ayudatía Jue 14:00 - 15:20 </br> 
 
-* [<i class="fas fa-download"></i>](files/course_calendar.xlsx) Calendario (Docencia Web).
+* [<i class="fas fa-download"></i>](files/Calendario.pdf) Calendario (Docencia Web/Canvas).
 
 * Slides
 
 * Material
 
-    * Scripts (Preguntas)
+    * Scripts (Código) 
     
     * Enunciado 
     
-        * Preguntas
+        * Explicaciones + Preguntas
         
         * Link a Google Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb)
 
@@ -146,36 +128,39 @@ class: inverse, center, middle
 
 1. Estoy consiente de que existe un alto volumen de código disponible en la *web* para resolver muchos problemas.
 
-2. Pueden usar recursos online (e.g StackOverflow) pero deben citar correctamente, incluso si lo usan como inspiración.
+2. Pueden usar recursos online (e.g. StackOverflow) pero deben citar correctamente, incluso si lo usan como inspiración.
 
 3. Si se descubre que el código es reciclado  y no está explicitamente citado, será tratado como plagio.
 
-4. En las evaluaciones (tareas y examen) está prohibido compartir código.
+4. En las evaluaciones (tareas, controles y examen) está prohibido compartir código.
+
+<br>
+
+<center>
+<a href="https://stackoverflow.com/">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Stack_Overflow_logo.svg", style="width:75%">
+</a>
+</center>
 
 ---
 
 # Evaluaciones
 
-* **Tareas:** Máximo dos integrantes por tareas (4). Ideal que sean los mismos durante el bimestre.
+* **Tareas:** Máximo dos integrantes por tareas. Ideal que sean los mismos durante el semestre.
 
-* **Examen**: De caracter individual e Incluye todo lo visto en el curso (vía Canvas<sup>1</sup>).
+* **Controles:** Serán **presenciales** los días jueves en horario de ayudantía. De caracter individual.
 
-| Componente | Ponderación |
-|------------|:-----------:|
-| Tareas (4) |  70%        |
-| Examen     | 30%         |
+* **Examen:** De caracter individual e Incluye todo lo visto en el curso. Se realizará presencial el último día de clases.
 
-* [<i class="fas fa-download"></i>](files/hw_policies.pdf) Política de entregas<sup>2</sup> (Docencia Web).
+| Componente    | Ponderación |
+|---------------|:-----------:|
+| Tareas (4)    |  40%        |
+| Controles (4) |  35%        |
+| Examen        |  25%        |
 
-* Ver la normativa básica en el programa (Docencia Web).
+* [<i class="fas fa-download"></i>](files/Politicas-Tareas.pdf) Política de entregas (Docencia Web/Canvas).
 
-.footnote[
-
-[1] Se subirá un instructivo aprox. 2 semanas antes.
-
-[2] Valido para tareas y examen.
-
-]
+* Asistencia mínima del 60% presencial en sala.
 
 ---
 class: inverse, center, middle
@@ -186,21 +171,39 @@ class: inverse, center, middle
 
 # Fechas tentativas
 
-</br>
+.pull-left[
 
-| Evaluación | Fecha                                                    | Entrega            |
-|------------|----------------------------------------------------------|--------------------|
-| Tarea 1    | Jueves 18 de Marzo (incluye hasta la clase 4)            | Jueves 25 de Marzo |
-| Tarea 2    | Jueves 25 de Marzo (incluye hasta la clase 6)            | Jueves 1 de Abril  |
-| Tarea 3    | Jueves 1 de Abril (incluye hasta la clase 8)             | Jueves 8 de Abril  |
-| Tarea 4    | Jueves 8 de Abril (incluye hasta la clase 10)            | Jueves 15 de Abril |
-| Examen     | Jueves 22 de Abril<sup>2</sup> (incluye toda la materia) | NA                 |
+* Todas las fechas son lunes:
 
-.footnote[
-
-[2] Fecha tentativa!!.
+| Evaluación | Fecha        | Entrega      |
+|------------|--------------|--------------|
+| Tarea 1    | 21 de Marzo  |  4 de Abril  |
+| Tarea 2    | 11 de Abril  |  25 de Abril |
+| Tarea 3    | 16 de Mayo   |  30 de Mayo  |
+| Tarea 4    | 23 de Mayo   |  20 de Junio |
 
 ]
+
+.pull-right[
+
+* Todas las fechas son jueves:
+
+| Evaluación | Fecha              |
+|------------|--------------------|
+| Control 1  | 31 de Marzo |
+| Control 2  | 21 de Abril |
+| Control 3  | 26 de Mayo  |
+| Control 4  | 9 de Junio  |
+
+]
+
+</br>
+
+* Ultimo día de clases: 16 de junio
+
+| Evaluación | Fecha          |
+|------------|----------------|
+| Examen     | 22 de Abril    |
 
 ---
 class: inverse, center, middle
@@ -243,10 +246,9 @@ class: inverse, center, middle
 # ¿Por qué Python `r emo::ji("snake")`?
 
 ---
-
 # Python Vs C++ Vs Java
 
-* Python:
+* Python
     ```{python, echo=TRUE, eval=FALSE}
     print('Python Vs C++ Vs Java!')
     ```
@@ -295,7 +297,7 @@ background-image: url(images/guido-van-rossum.jpg)
 ---
 ## Lenguajes más utilizados 
 
-```{r, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE}
+```{r, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE, out.width="100%"}
 if(!require("pacman")) install.packages("pacman")
 p_load("tidyverse", "highcharter", "shiny")
 
@@ -326,7 +328,7 @@ hc1
 ---
 ## ¿Qué lenguajes recomendarias? 
 
-```{r, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE}
+```{r, echo = FALSE, eval = TRUE, warning=FALSE, message=FALSE, out.width="100%"}
 lang_recom <- kaggle_survey %>% 
   slice(-1) %>% 
   select(Q8) %>% 
@@ -354,7 +356,7 @@ hc2
 ---
 ## ¿Qué lenguajes utilizas habitualmente? 
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, out.width="100%"}
 lang_use_per_role <- kaggle_survey %>% 
   slice(-1) %>% 
   select(Q5, Q7_Part_1:Q7_Part_12) %>% 
@@ -380,7 +382,7 @@ hc3
 ---
 ## ¿Qué IDE utilizas habitualmente? 
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, out.width="100%"}
 ide_use_per_role <- kaggle_survey %>% 
   slice(-1) %>% 
   select(Q5, Q9_Part_1:Q9_Part_10) %>% 
